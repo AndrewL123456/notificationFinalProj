@@ -19,11 +19,30 @@ class CustomTableViewCell: UITableViewCell {
     
     @IBOutlet weak var streamerImage: UIImageView!
     
+        var youtubeLinks: [String]!
+        var twitchLinks: [String]!
+        var twitterLinks: [String]!
+        var name: [String]!
+        var image: [UIImage]!
+    
+
+    
     
     
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        
+        
+//        youtubeLinks = youtubeLabel.text
+//        twitchLinks = twitchLabel.text
+//        twitterLinks = twitterLabel.text
+//        name = nameLabel.text
+//
+        
+        
+        
+        
     }
 
     

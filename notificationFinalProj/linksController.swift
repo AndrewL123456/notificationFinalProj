@@ -18,6 +18,15 @@ class linksController: UIViewController {
     
     @IBOutlet weak var streamerTwitter: UITextField!
     
+    
+//    struct Streamer {
+//        let name: streamerName!
+//        let Youtube: streamerYT!
+//        let Twitch: streamerTwitch!
+//        let Twitter: streamerTwitter!
+//    }
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -25,16 +34,22 @@ class linksController: UIViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let vc = segue.destination as! CustomTableViewCell
-        if segue.destination is CustomTableViewCell {
-            vc.nameLabel.text = streamerName.text!
-            vc.youtubeLabel.text = streamerYT.text!
-            vc.twitchLabel.text = streamerTwitch.text!
-            vc.twitterLabel.text = streamerTwitter.text!
+        let vc = segue.destination as! tableViewControl
+        var stName = streamerName.text ?? ""
+        var stYoutube = streamerYT.text ?? ""
+        var stTwitch = streamerTwitch.text ?? ""
+        var stTwitter = streamerTwitter.text ?? ""
+        let ovc = segue.destination as! CustomTableViewCell
+        if segue.destination is tableViewControl {
+            vc.name.append(stName)
+            vc.youtubeLinks.append(stYoutube)
+            vc.twitchLinks.append(stTwitch)
+            vc.twitterLinks.append(stTwitter)
         }
     }
     
     @IBAction func segueButton(_ sender: Any) {
+        //need to add a check here to make sure that people put text in the text fields to prevent erros and if they didnt then it should start an alert to cancel the segue therefore forcing them to complete the text fields
     }
     
     
